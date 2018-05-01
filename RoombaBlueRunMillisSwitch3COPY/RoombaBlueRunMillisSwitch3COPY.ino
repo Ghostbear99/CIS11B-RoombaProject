@@ -162,14 +162,14 @@ void loop() {
             }
           }
           if (distance <= 9) {
-            Serial.println(" In of range <=4");
+            Serial.println(" In of range <=9");
             while ((distance >= 6) && (distance < 9)) {
               Serial.println("Scanning Card");
               distance = Search ();
               Serial.print(distance);
               Serial.println(" cm");
 
-              ///
+             
               unsigned long currentMillis = millis();
               if (currentMillis - previousMillis >= interval)
               {
@@ -242,7 +242,7 @@ void startSafeMode() {
   Roomba.write(131); // Safe Mode
   //delay(500);
 }
-
+// Method that tells the Roomba to go forward in hexadecimal
 void goForward() {
   // Code necessary to drive the Roomba Create
   // Telling Roomba to drive to the bytes
@@ -256,7 +256,7 @@ void goForward() {
   Roomba.write((byte)0x00);
 
 }
-
+// Method that tells the Roomba to go backward in hexadecimal
 void goBackward() {
   // LED blinks to let tester know that it is going backwards
   // Byte code telling Roomba create to drive backwards
@@ -267,7 +267,7 @@ void goBackward() {
   Roomba.write(0x80);
   Roomba.write((byte)0x00);
 }
-
+// Method that tells the Roomab to go left in hexadecimal
 void goLeft() {
   Serial.println("LEFT");
   Roomba.write(137);
@@ -276,7 +276,7 @@ void goLeft() {
   Roomba.write((byte)0x00);
   Roomba.write(0x01);
 }
-
+// Method that tells the Roomba to go right in hexadecimal
 void goRight() {
   Serial.println("RIGHT");
   Roomba.write(137);
@@ -285,7 +285,7 @@ void goRight() {
   Roomba.write(0xff);
   Roomba.write(0xff);
 }
-
+// Tells the Roomba to stop in hexadecimal
 void halt() {
   // Byte code telling Roomba Create to stop moving
   byte j = 0x00;
@@ -296,7 +296,7 @@ void halt() {
   Roomba.write(j);
   Roomba.end();
 }
-
+// Method in which the Roomba moves to the box
 void ActionForward() {
   unsigned long currentMillis = millis();
   if (currentMillis - previousMillis >= interval)
@@ -329,7 +329,7 @@ void ActionForward() {
   halt();
   digitalWrite(ledPin, LOW);
 }
-
+// Method that tells the Roomba to go back to its original position
 void ActionBackward() {
   unsigned long currentMillis = millis();
   if (currentMillis - previousMillis >= interval)
@@ -363,7 +363,7 @@ void ActionBackward() {
 }
 
 
-//M1
+// Arm motor 1 moves forward
 void m1forward() {
   myMotor1->setSpeed(30);
 
@@ -387,7 +387,7 @@ void m1forward() {
   }
 }
 
-
+// Arm motor 1 goes backward
 void m1backward() {
   myMotor1->setSpeed(30);
 
@@ -411,7 +411,7 @@ void m1backward() {
   }
 }
 
-///M2
+///Arm motor 2 goes forward
 void m2forward() {
   myMotor2->setSpeed(30);
 
@@ -435,7 +435,7 @@ void m2forward() {
   }
 }
 
-
+// Arm motor 2 goes backward
 void m2backward() {
   myMotor2->setSpeed(30);
 
@@ -458,7 +458,7 @@ void m2backward() {
     myMotor2->run(RELEASE);
   }
 }
-//M3
+//Arm motor 3 moves forward
 void m3forward() {
   myMotor3->setSpeed(30);
 
@@ -481,7 +481,7 @@ void m3forward() {
     myMotor3->run(RELEASE);
   }
 }
-
+// Arm motor 3 moves backward
 void m3backward() {
   myMotor3->setSpeed(30);
 
@@ -505,7 +505,7 @@ void m3backward() {
   }
 }
 
-//M4
+//Arm motor 4 moves forward
 void m4forward() {
   myMotor4->setSpeed(30);
 
@@ -528,7 +528,7 @@ void m4forward() {
     myMotor4->run(RELEASE);
   }
 }
-
+// Arm motor 4 moves backward
 void m4backward() {
   myMotor4->setSpeed(30);
 
